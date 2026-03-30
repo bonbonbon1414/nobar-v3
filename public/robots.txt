@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://garagedoorocala.com/sitemap.xml

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolakami | Situs Nonton Bola Live Streaming Gratis & Jadwal Nobar Malam Ini</title>
+    <meta name="description" content="Bolakami adalah situs nobar dan nonton bola live streaming gratis terbaik. Dapatkan jadwal bola hari ini, update skor langsung, dan link jalalive alternatif tanpa buffering.">
+    <meta name="keywords" content="nonton bola, live streaming bola, jalalive, situs nobar, jadwal bola hari ini, tv online bola, streaming bola gratis">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="EbGUVmOp6sCfqxwsdg0GMUt3CCX9nLwwBPew8iTeXkQ" />
+    <link rel="amphtml" href="https://garagedoorocala-amp.ajaabonny96.workers.dev/">
+    
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bolakami",
+      "url": "https://garagedoorocala.com/",
+      "logo": "https://garagedoorocala.com/bolakami.svg",
+      "description": "Platform live streaming bola dan skor langsung tercepat di Indonesia.",
+      "sameAs": [
+        "https://garagedoorocala.com/"
+      ]
+    }
+    </script>
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://garagedoorocala.com/">
+    <meta property="og:title" content="Bolakami | Nonton bola live streaming gratis & Skor Langsung">
+    <meta property="og:description" content="Situs nobar dan nonton bola live streaming gratis terbaik tanpa buffering. Update jadwal dan skor langsung terlengkap setiap harinya.">
+    <meta property="og:image" content="https://garagedoorocala.com/bolakami.svg">
+    <meta property="og:site_name" content="Bolakami">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://garagedoorocala.com/">
+    <meta property="twitter:title" content="Bolakami | Nonton bola live streaming gratis & Skor Langsung">
+    <meta property="twitter:description" content="Situs nobar dan nonton bola live streaming gratis terbaik tanpa buffering. Update jadwal dan skor langsung terlengkap setiap harinya.">
+    <meta property="twitter:image" content="https://garagedoorocala.com/bolakami.svg">
+
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <!-- FontAwesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="glow-bg"></div>
+
+    <header class="header">
+      <div class="logo">
+        <img src="/bolakami.svg" alt="Bolakami Logo" class="nav-logo" />
+        <a href="https://garagedoorocala.com/" class="logo-text" style="text-decoration: none; color: inherit;">Bolakami</a>
+      </div>
+      <nav class="nav">
+        <a href="#" class="active">Langsung</a>
+        <a href="#jadwal">Jadwal</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <div class="user-actions">
+        <a href="https://bolakami.com/" class="btn-primary" style="text-decoration: none;">
+          <i class="fa-solid fa-play" style="margin-right: 6px; font-size: 0.8em;"></i> Nonton Bola Live
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero" id="home">
+        <h1>Tempat <span>Nonton Bola Live</span> Yang Mantap & <span>Jadwal Nobar</span> Bola Hari Ini</h1>
+        <p>
+          Nikmati pengalaman yang sangat mengasyikkan dan mendebarkan saat Anda menonton pertandingan sepak bola secara langsung dengan segera. Anda akan mendapatkan informasi yang akurat mengenai skor yang diperoleh dalam pertandingan dengan cepat dan tepat waktu. Selain itu, Anda juga akan disuguhi statistik yang mendalam dan terperinci, yang akan memberikan wawasan lebih dalam tentang permainan yang sedang berlangsung. Tidak hanya itu, Anda juga dapat melihat prediksi yang dilakukan dengan cepat dan efisien, yang tentunya akan menambah keseruan saat mengikuti perkembangan pertandingan, dan semua itu dapat Anda temukan hanya di Bolakami.
+        </p>
+      </section>
+
+      <section class="live-matches" id="jadwal">
+        <div class="section-header" style="justify-content: center;">
+          <h2>Jadwal Nobar Hari Ini</h2>
+          <div class="pulse-indicator">
+            <span class="dot"></span>
+            <span>Live</span>
+          </div>
+        </div>
+
+        <div class="loader" id="loader">
+          <div class="spinner"></div>
+        </div>
+
+        <div class="matches-grid" id="matches-grid">
+          <!-- Data will be injected here via JavaScript -->
+        </div>
+
+        <div class="error-state" id="error-state" style="display: none">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Gagal memuat pertandingan. Silakan coba lagi nanti.</p>
+        </div>
+      </section>
+
+      <!-- Panduan Cara Nonton -->
+      <section class="guide-section">
+        <div class="section-header" style="justify-content: center; margin-bottom: 40px;">
+          <h2>Panduan Cara Nonton Live Streaming</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3>1. Buka Bolakami</h3>
+            <p>Akses situs web kami kapan saja menggunakan perangkat mobile atau desktop.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-list-check"></i></div>
+            <h3>2. Pilih Pertandingan</h3>
+            <p>Lihat menu jadwal dan pilih pertandingan yang berstatus "Live".</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon"><i class="fa-solid fa-tv"></i></div>
+            <h3>3. Nikmati Tayangan</h3>
+            <p>Klik pertandingannya dan tonton live streaming gratis tanpa buffering.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="tentang">
+        <div class="section-header" style="justify-content: center; margin-bottom: 30px;">
+          <h2>Tentang Bolakami: Platform Live Streaming Bola Terpercaya</h2>
+        </div>
+        <div class="about-container">
+          <div class="about-content">
+            <p><strong><a href="https://garagedoorocala.com/" style="text-decoration: none; color: inherit;">Bolakami</a></strong> adalah destinasi utama bagi para penggemar sepak bola di Indonesia yang mencari akses cepat ke <strong>nonton bola live streaming gratis</strong>. Sebagai salah satu layanan <strong>jalalive alternatif</strong> yang paling stabil, kami menyajikan tayangan berkualitas HD tanpa buffering untuk liga-liga top dunia seperti Liga Inggris, Liga Spanyol, Liga Italia, hingga Liga Indonesia.</p>
+            <p>Kami memahami bahwa statistik yang akurat sangat penting bagi para penikmat <strong>live score</strong>. Oleh karena itu, Bolakami menggunakan data langsung yang diperbarui setiap detik, memastikan Anda tidak ketinggalan momen gol, kartu merah, atau pergantian pemain. Dengan sistem <strong>tv online bola</strong> kami, Anda bisa menikmati pertandingan favorit di mana saja dan kapan saja, baik melalui perangkat mobile maupun desktop.</p>
+            <p>Misi kami adalah membangun komunitas <strong>nobar</strong> yang solid dengan menyediakan informasi jadwal bola terlengkap dan wawasan pertandingan yang mendalam. Jadikan Bolakami sebagai referensi utama Anda untuk setiap pertandingan besar setiap harinya!</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <i class="fa-solid fa-bolt"></i>
+              <h3>Update Tercepat</h3>
+              <p>Skor langsung dan statistik pertandingan diperbarui secara real-time.</p>
+            </div>
+            <div class="stat-card">
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Data Terakurat</h3>
+              <p>Informasi pertandingan bersumber dari provider data resmi kelas dunia.</p>
+            </div>
+            <div class="stat-card">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <h3>Akses Responsif</h3>
+              <p>Nikmati streaming lancar di semua jenis layar tanpa kendala teknis.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="section-header" style="justify-content: center; margin-bottom: 30px;">
+          <h2>Pertanyaan yang Sering Diajukan (FAQ) Seputar Nonton Bola</h2>
+        </div>
+        <div class="faq-container">
+          <details class="faq-item">
+            <summary>Bagaimana cara nonton live streaming bola gratis di Bolakami?</summary>
+            <div class="faq-content">
+              <p>Untuk menikmati <strong>streaming bola gratis</strong>, Anda cukup mengunjungi halaman utama Bolakami, lalu cari jadwal pertandingan yang bertanda "Live". Klik pada pertandingan tersebut untuk membuka akses tayangan langsung tanpa perlu mendaftar atau berlangganan biaya bulanan.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah Bolakami aman digunakan sebagai situs nobar?</summary>
+            <div class="faq-content">
+              <p>Ya, Bolakami dirancang dengan protokol keamanan standar untuk memastikan pengalaman <strong>nobar</strong> yang aman dan nyaman. Kami menyarankan Anda untuk selalu menggunakan koneksi internet yang stabil untuk menghindari buffering saat menonton tayangan resolusi tinggi.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah ada link jalalive alternatif jika situs utama tidak bisa diakses?</summary>
+            <div class="faq-content">
+              <p>Bolakami selalu menyediakan berbagai mirror link dan <strong>jalalive alternatif</strong> untuk memastikan akses tidak terputus. Pastikan Anda menyimpan (bookmark) halaman ini agar selalu mendapatkan update link terbaru setiap kali ada pemblokiran atau gangguan teknis.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Apakah saya bisa melihat jadwal bola hari ini di Bolakami?</summary>
+            <div class="faq-content">
+              <p>Tentu saja! Kami menyediakan <strong>jadwal bola hari ini</strong> yang sangat lengkap, mencakup liga-liga besar Eropa seperti Premier League, La Liga, hingga turnamen internasional lainnya. Semua jadwal diperbarui secara otomatis sesuai dengan waktu lokal di Indonesia.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Call to Action Banner -->
+      <section class="cta-section">
+        <div class="cta-container">
+          <h2>Jangan Lewatkan Big Match Malam Ini!</h2>
+          <p>Tonton semua pertandingan liga top Eropa 100% gratis dengan kualitas Full HD tanpa perlu registrasi.</p>
+          <a href="#jadwal" class="btn-primary cta-btn">
+            <i class="fa-solid fa-play" style="margin-right: 8px;"></i> Nonton Sekarang
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-section" id="kontak">
+        <div class="section-header" style="justify-content: center; margin-bottom: 30px;">
+          <h2>Kontak Kami</h2>
+        </div>
+        <div class="contact-container">
+          <p class="contact-text">Punya pertanyaan, masukan, atau kendala dalam menonton? Silakan hubungi tim dukungan kami kapan saja.</p>
+          <div class="contact-methods">
+            <a href="https://www.instagram.com/bolakamiofficial2/" target="_blank" class="contact-card">
+              <i class="fa-brands fa-instagram"></i>
+              <h3>Instagram</h3>
+              <p>@bolakamiofficial2</p>
+            </a>
+            <a href="https://x.com/Bolakamiofc" target="_blank" class="contact-card">
+              <i class="fa-brands fa-x-twitter"></i>
+              <h3>X (Twitter)</h3>
+              <p>@Bolakamiofc</p>
+            </a>
+            <a href="https://www.facebook.com/bolakamiofc" target="_blank" class="contact-card">
+              <i class="fa-brands fa-facebook"></i>
+              <h3>Facebook</h3>
+              <p>bolakamiofc</p>
+            </a>
+            <a href="https://www.tiktok.com/@bolakami" target="_blank" class="contact-card">
+              <i class="fa-brands fa-tiktok"></i>
+              <h3>TikTok</h3>
+              <p>Bolakami</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Bolakami. Semua Hak Dilindungi.</p>
+        
+        <!-- Histats.com  (div with counter) -->
+        <div id="histats_counter" style="margin-top: 20px;"></div>
+        <!-- Histats.com  START  (aync)-->
+        <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,5010871,4,128,112,33,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5010871&101" alt="html hit counter" border="0"></a></noscript>
+        <!-- Histats.com  END  -->
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
