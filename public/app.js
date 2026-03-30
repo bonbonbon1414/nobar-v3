@@ -91,35 +91,46 @@ Kamis, 2 April 2026
         });
     };
 
+    // ---- Skeleton loading ----
+    const skeletonBody = document.getElementById('skeleton-body');
+    if (skeletonBody) {
+        skeletonBody.innerHTML = ''; // Clear initial if any
+        for (let i = 0; i < 5; i++) {
+            skeletonBody.innerHTML += `
+                <tr class="skeleton-row">
+                    <td><div class="skeleton sk-short"></div></td>
+                    <td><div class="skeleton sk-long"></div></td>
+                    <td><div class="skeleton sk-med"></div></td>
+                </tr>`;
+        }
+    }
+
     const renderMatches = () => {
-        loader.style.display = 'none';
+        // Find existing skeleton and clear it
+        if (skeletonBody) skeletonBody.innerHTML = '';
         
         let htmlContent = '';
         let lastDateTitle = '';
         
         matches.forEach((match) => {
             if (match.date_title !== lastDateTitle) {
-                // If not the first group, close the previous table
                 if (lastDateTitle !== '') {
-                    htmlContent += `</tbody></table></div></div>`;
+                    htmlContent += `</tbody></table></div>`;
                 }
                 
-                // Create a new date header and table based on the image
                 lastDateTitle = match.date_title;
                 htmlContent += `
-                    <div class="matches-day-group">
-                        <h3 class="date-heading">${match.date_title}</h3>
-                        <div class="matches-table-container">
-                            <table class="matches-table">
-                                <thead>
-                                    <tr>
-                                        <th class="col-time">Kick-<br>Off<br>(WIB)</th>
-                                        <th class="col-match">Pertandingan</th>
-                                        <th class="col-league">Kompetisi</th>
-                                        <th class="col-tv">Stasiun TV</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                    <div class="day-group">
+                        <div class="day-label">${match.date_title}</div>
+                        <table class="match-table">
+                            <thead>
+                                <tr>
+                                    <th>Kick-off (WIB)</th>
+                                    <th>Pertandingan</th>
+                                    <th>Kompetisi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                 `;
             }
             
@@ -127,23 +138,39 @@ Kamis, 2 April 2026
             let awayTeam = match.participants.find(p => p.meta && p.meta.location === 'away') || match.participants[1];
             
             htmlContent += `
-                <tr onclick="window.location.href='https://garagedoorocala.com/'" style="cursor: pointer;">
-                    <td class="time-cell">${match.time_str}</td>
-                    <td class="teams-cell">${homeTeam.name} vs ${awayTeam.name}</td>
-                    <td class="league-cell">${match.stage ? match.stage.name : '-'}</td>
-                    <td class="tv-cell">${match.tv || '-'}</td>
+                <tr>
+                    <td class="time">${match.time_str}</td>
+                    <td class="match-name">${homeTeam.name} <span style="color:var(--text-muted);font-weight:400;">vs</span> ${awayTeam.name}</td>
+                    <td class="competition">${match.stage ? match.stage.name : '-'}</td>
                 </tr>
             `;
         });
         
-        // Close the final table
         if (matches.length > 0) {
-            htmlContent += `</tbody></table></div></div>`;
+            htmlContent += `</tbody></table></div>`;
         }
         
-        matchesGrid.className = '';
-        matchesGrid.innerHTML = htmlContent;
+        if (matchesGrid) {
+            matchesGrid.innerHTML = htmlContent;
+            matchesGrid.style.display = 'block';
+        }
     };
 
+    // Simulate small delay for skeleton effect visibility if desired, 
+    // but here we just render immediately
     renderMatches();
+
+    // ---- Active nav on scroll ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(a => a.classList.remove('active'));
+                const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
 });
