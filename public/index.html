@@ -105,6 +105,11 @@
           radial-gradient(ellipse 60% 40% at 20% 10%, rgba(57,255,110,0.07) 0%, transparent 60%),
           radial-gradient(ellipse 40% 30% at 80% 80%, rgba(57,255,110,0.05) 0%, transparent 60%);
       }
+      .ambient::after {
+        content: ""; position: absolute; inset: 0;
+        opacity: 0.04; mix-blend-mode: overlay;
+        background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+      }
 
       /* ===== HEADER / NAV ===== */
       .header {
@@ -132,7 +137,7 @@
       .nav { display: flex; align-items: center; gap: 32px; }
       .nav a {
         font-size: 0.875rem; font-weight: 500;
-        color: var(--text-muted); text-decoration: none;
+        color: rgba(255, 255, 255, 0.65); text-decoration: none;
         transition: color var(--transition);
         position: relative;
       }
@@ -142,7 +147,7 @@
         transition: width var(--transition);
         border-radius: 2px;
       }
-      .nav a:hover, .nav a.active { color: var(--text); }
+      .nav a:hover, .nav a.active { color: #ffffff; }
       .nav a:hover::after, .nav a.active::after { width: 100%; }
 
       .btn-primary {
@@ -192,12 +197,14 @@
 
       .hero h1 {
         font-family: 'Syne', sans-serif;
-        font-size: clamp(2rem, 5vw, 3.4rem);
-        font-weight: 800; line-height: 1.12;
-        letter-spacing: -1.5px; color: var(--text);
-        margin-bottom: 20px;
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+        font-weight: 800; line-height: 1.15;
+        letter-spacing: -0.5px; color: #ffffff;
+        margin-bottom: 24px;
+        position: relative;
+        text-shadow: 0 0 32px rgba(57, 255, 110, 0.04); /* Subtle ambient glow */
       }
-      .hero h1 span { color: var(--green); }
+      .hero h1 span { color: var(--green); filter: drop-shadow(0 0 10px rgba(57,255,110,0.15)); }
 
       .hero-desc {
         font-size: clamp(0.95rem, 1.5vw, 1.05rem);
@@ -253,8 +260,8 @@
 
       /* ===== SCHEDULE SECTION ===== */
       .schedule-section {
-        padding: 0 clamp(16px, 4vw, 60px) 80px;
-        max-width: 1100px; margin: 0 auto;
+        padding: 40px clamp(20px, 5vw, 80px) 100px;
+        max-width: 1200px; margin: 0 auto;
       }
 
       /* Day group */
@@ -517,17 +524,36 @@
 
       /* ===== SOCIAL PROOF ===== */
       .social-proof {
-        display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;
-        padding: 48px clamp(16px, 4vw, 60px);
-        border-top: 1px solid var(--card-border);
-        border-bottom: 1px solid var(--card-border);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 32px;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px clamp(20px, 4vw, 60px);
+        border-top: 1px solid rgba(255,255,255,0.04);
+        border-bottom: 1px solid rgba(255,255,255,0.04);
       }
-      .proof-item { text-align: center; }
+      .proof-item {
+        text-align: center;
+        position: relative;
+      }
+      .proof-item:not(:last-child)::after {
+        content: ''; position: absolute; right: -16px; top: 15%;
+        height: 70%; width: 1px; background: rgba(57, 255, 110, 0.1);
+      }
+      @media (max-width: 768px) {
+        .proof-item:not(:last-child)::after { display: none; }
+      }
       .proof-number {
-        font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
-        color: var(--green); line-height: 1;
+        font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800;
+        color: var(--green); line-height: 1; margin-bottom: 8px;
+        letter-spacing: -0.5px;
       }
-      .proof-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+      .proof-label {
+        font-size: 0.8rem; color: var(--text-muted);
+        text-transform: uppercase; letter-spacing: 0.8px;
+        font-weight: 500;
+      }
 
       /* ===== CONTACT SECTION ===== */
       .contact-section {
@@ -561,9 +587,20 @@
         font-size: 0.78rem; color: var(--text-muted);
       }
 
-      /* ===== RESPONSIVE NAV ===== */
+      /* ===== RESPONSIVE NAV & MOBILE TWEAKS ===== */
       @media (max-width: 600px) {
         .nav { display: none; }
+        .header { padding: 0 10px; height: 54px; }
+        .logo-text { font-size: 1rem; }
+        .nav-logo { width: 22px; height: 22px; }
+        .header .btn-primary { padding: 2px 5px; font-size: 0.65rem; gap: 3px; border-radius: 4px; }
+        .hero { padding-top: 40px; padding-bottom: 32px; }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 16px; }
+        .hero-desc { margin-bottom: 20px; font-size: 0.95rem; }
+        .hero-perks { gap: 6px; margin-bottom: 24px; }
+        .perk { padding: 4px 10px; font-size: 0.75rem; }
+        .hero-cta { gap: 8px; }
+        .btn-primary, .btn-secondary { width: 30%; justify-content: center; padding: 8px 15px; font-size: 0.82rem; gap: 6px; }
       }
 
       /* ===== FADE IN ANIMATION ===== */
@@ -712,40 +749,40 @@
       <!-- ABOUT -->
       <section class="about-section" id="tentang">
         <div class="section-header">
-          <h2>Tentang Bolakami: Platform Live Streaming Bola Terpercaya</h2>
+          <h2>Tentang Bolakami: Platform Nobar Streaming Langsung Sepak Bola yang Andal dan Paling Cepat</h2>
         </div>
         <div class="about-container">
           <div class="about-content">
             <p>
-              <strong><a href="https://bolakami.com/" rel="noopener noreferrer">Bolakami</a></strong> adalah destinasi utama bagi para penggemar sepak bola di Indonesia yang mencari akses cepat ke <strong>nonton bola live streaming gratis</strong>. Sebagai salah satu layanan <strong>jalalive alternatif</strong> yang paling stabil, kami menyajikan tayangan berkualitas HD tanpa buffering untuk liga-liga top dunia seperti Liga Inggris, Liga Spanyol, Liga Italia, hingga Liga Indonesia.
+              <strong><a href="https://bolakami.com/" rel="noopener noreferrer">Bolakami</a></strong> hadir sebagai pusat interaksi digital bagi para pecinta sepak bola di tanah air. Kami mendedikasikan platform ini sebagai solusi <strong>nonton bola live streaming gratis</strong> paling andal bagi Anda yang menginginkan kualitas HD tanpa gangguan. Sebagai <strong>jalalive alternatif</strong> yang terus memperbarui layanannya, Bolakami menghadirkan kemudahan akses ke berbagai kompetisi bergengsi, mulai dari liga-liga elit Eropa hingga geliat Liga Indonesia secara cuma-cuma.
             </p>
             <p>
-              Kami memahami bahwa statistik yang akurat sangat penting bagi para penikmat <strong>live score</strong>. Oleh karena itu, Bolakami menggunakan data langsung yang diperbarui setiap detik, memastikan Anda tidak ketinggalan momen gol, kartu merah, atau pergantian pemain. Dengan sistem <strong>tv online bola</strong> kami, Anda bisa menikmati pertandingan favorit di mana saja dan kapan saja.
+              Kami menyadari bahwa kecepatan informasi adalah kunci bagi setiap penggemar setia. Maka dari itu, fitur <strong>live score</strong> kami diintegrasikan dengan pembaruan data real-time setiap detiknya, menjamin Anda tidak akan melewatkan setiap gol dramatis, statistik krusial, maupun perkembangan di atas lapangan. Melalui sistem <strong>tv online bola</strong> yang responsif, seluruh pertandingan besar kini berada dalam genggaman Anda, kapan pun dan di mana pun.
             </p>
             <p>
-              Misi kami adalah membangun komunitas <strong>nobar</strong> yang solid dengan menyediakan informasi jadwal bola terlengkap dan wawasan pertandingan yang mendalam. Jadikan Bolakami sebagai referensi utama Anda untuk setiap pertandingan besar!
+              Visi kami adalah menciptakan ekosistem <strong>nobar</strong> virtual yang informatif dan inklusif. Di sini, Anda dapat menemukan jadwal bola terlengkap hingga analisis mendalam yang dikurasi khusus untuk meningkatkan pengalaman menonton Anda. Jadikan Bolakami sebagai partner tepercaya Anda dalam merayakan setiap euforia sepak bola dunia!
             </p>
           </div>
           <div class="about-stats">
             <div class="stat-card">
               <i class="fa-solid fa-bolt"></i>
               <div>
-                <h3>Update Tercepat</h3>
-                <p>Skor langsung dan statistik pertandingan diperbarui secara real-time.</p>
+                <h3>Akurasi Real-Time</h3>
+                <p>Dapatkan update skor langsung dan statistik krusial dengan latensi minimal.</p>
               </div>
             </div>
             <div class="stat-card">
               <i class="fa-solid fa-chart-line"></i>
               <div>
-                <h3>Data Terakurat</h3>
-                <p>Informasi pertandingan bersumber dari provider data resmi kelas dunia.</p>
+                <h3>Sumber Data Resmi</h3>
+                <p>Informasi pertandingan yang valid dan terpercaya dari provider olahraga global terkemuka.</p>
               </div>
             </div>
             <div class="stat-card">
               <i class="fa-solid fa-mobile-screen-button"></i>
               <div>
-                <h3>Akses Responsif</h3>
-                <p>Nikmati streaming lancar di semua jenis layar tanpa kendala teknis.</p>
+                <h3>Optimasi Multi-Device</h3>
+                <p>Pengalaman streaming yang mulus dan adaptif di berbagai perangkat, dari mobile hingga desktop.</p>
               </div>
             </div>
           </div>
