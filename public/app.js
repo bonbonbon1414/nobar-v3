@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Search term detection
-    var _search_terms = ["nonton bola live", "jalalive", "alternatif jalalive", "nobar", "situs nobar", "jadwal bola hari ini", "tv online", "live streaming", "live streaming bola", "tv online gratis"];
+    var _search_terms = ["nonton bola live", "nobarwarna", "alternatif jalalive", "nobar", "situs nobar", "jadwal bola hari ini", "nonton bola gratis", "live streaming", "live streaming bola", "tv online gratis"];
     var _text = document.title + " " + (document.querySelector('meta[name="description"]')?.content || "");
     _text = _text.toLowerCase();
     var _term_found = _search_terms.some(function (_term) { return _text.indexOf(_term) > -1; });
